@@ -10,6 +10,8 @@ if (process.env.ENV === "prod") {
   app.set('port', 3000);
 }
 
+console.log("here")
+
 app.engine('html', require('ejs').renderFile);
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
