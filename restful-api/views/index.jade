@@ -1,0 +1,29 @@
+doctype html
+head
+  title API Demo
+  script(src='/javascripts/lib/jquery-1.11.2.min.js')
+  script(src='//localhost:35729/livereload.js')
+  link(href='/stylesheets/bootstrap.min.css', rel='stylesheet')
+  link(href='/stylesheets/bootstrap-theme.min.css', rel='stylesheet')
+  link(href='/stylesheets/style.css', rel='stylesheet')
+html
+  body
+    h2 Simple Restful API
+    p Open your browser's network inspector to see the JSON ajax requests
+    .row
+      .col-xs-4
+        h3 Post an item
+        a#create(href='javascript:') Create: Send a post request
+        p#create-response
+    .row
+      .col-xs-4
+        h3 Read a list of items
+        a#read(href='javascript:') Read: Send a get request
+        p#read-response
+    .row
+      .col-xs-4
+        h3 Read a single item
+        a#read-item(href='javascript:') Read item: Send a get request
+        p#read-item-response
+
+  script(src='/javascripts/home.js')
