@@ -1,6 +1,66 @@
-node-starter-pack
-=================
+# NodeJS Starter Pack
 
-(Work in progress, not ready yet)
+Streamline starting from scratch. This provides minimal working NodeJS projects for specific development contexts.
 
-Boilerplate projects to help start node development fast
+## Installation
+
+First you'll need to install NodeJS from [nodejs.org](http://nodejs.org/download/) or [node version manager](https://github.com/creationix/nvm). Supported version is node 10.32.
+
+Once installed, check the version
+
+    node --version  #should read 0.10.32 or greater
+
+Next install grunt-cli globally so that we can run grunt scripts later.
+
+    npm install -g grunt-cli
+
+    grunt --version  #verifies correct install
+
+Checkout the project and copy the starter project you want. Feel free to fork it into your own repo for convenience.
+
+    git clone https://github.com/NUDelta/node-starter-pack
+
+## Starter: RESTful API (restful-api)
+
+What's a RESTful API? API's make engineers happy. Head over to Vimeo for a [great intro to REST](http://vimeo.com/17785736).
+
+### Launching the restful-api starter
+
+Clone the whole starter pack if you don’t have it.
+
+    git clone https://github.com/NUDelta/node-starter-pack
+
+Navigate to that directory.
+
+    cd node-starter-pack/restful-api
+
+Install the node dependencies
+
+    npm install #should run for less than one minute
+
+Check for errors. If none, we’re good. Run the command below and navigate to [http://localhost:3000](http://localhost:3000).
+
+    node app.js #then, open your browser at
+
+Or if you want to develop with live-reload and linting enabled:
+
+    grunt up
+
+### restful-api Project Structure
+
+- restful-api
+    - collections/ - structured lists of the models
+    - models/ - structures for objects of data
+    - node_modules/ - libraries that node installs and uses, don't commit this
+    - public/ - code and files that can be fetched by a client web browser
+        - images/ - hosting for image files
+        - javascripts/ - hosting for JS
+            - lib/ - JS libraries like jQuery, underscore, etc
+        - stylesheets/ - CSS
+    - routes/ - URL's, responses, requests
+    - services/ - data CRUD and transformation
+    - views/ - html, jade, server-side html building
+    - app.js - starts the web server
+    - Gruntfile.js - maintenance, builds, development, automated tasks
+    - package.json - list of node packages your server needs
+    - server.js - script to run app.js on all your cores
