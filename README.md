@@ -34,19 +34,15 @@ Next install grunt-cli globally so that we can run grunt scripts later.
 
     grunt --version  #verifies correct install
 
-Checkout the project and copy the starter project you want. Feel free to fork it into your own repo for convenience.
-
-    git clone https://github.com/NUDelta/node-starter-pack
-
 ### Launching the restful-api starter
 
-Clone the whole starter pack if you don’t have it.
+Clone this repo if you don’t have it.
 
-    git clone https://github.com/NUDelta/node-starter-pack
+    git clone https://github.com/NUDelta/node-restful-api-starter
 
 Navigate to that directory.
 
-    cd node-starter-pack/restful-api
+    cd node-restful-api-starter/restful-api
 
 Install the node dependencies
 
@@ -56,7 +52,6 @@ Check for errors. If none, we’re good. Run the command below and navigate to [
 
     node app.js #then, open your browser at
 
-Or if you want to develop with live-reload and linting enabled:
+Or if you want to develop with live-reload and JS Linting enabled:
 
     grunt up
-
