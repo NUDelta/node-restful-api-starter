@@ -1,6 +1,6 @@
 # NodeJS RESTful API Starter
 
-Streamline starting from scratch. This provides a minimal working NodeJS restful API.
+Streamline starting from scratch. This provides a minimal working NodeJS restful API. What's a RESTful API? API's make engineers happy. Head over to Vimeo for a [great intro to REST](http://vimeo.com/17785736).
 
 ### Project Structure
 
@@ -37,10 +37,6 @@ Next install grunt-cli globally so that we can run grunt scripts later.
 Checkout the project and copy the starter project you want. Feel free to fork it into your own repo for convenience.
 
     git clone https://github.com/NUDelta/node-starter-pack
-
-## Starter: RESTful API (restful-api)
-
-What's a RESTful API? API's make engineers happy. Head over to Vimeo for a [great intro to REST](http://vimeo.com/17785736).
 
 ### Launching the restful-api starter
 
