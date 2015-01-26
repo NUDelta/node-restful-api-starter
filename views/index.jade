@@ -1,45 +1,58 @@
 doctype html
 head
-  title API Demo
-  script(src='/javascripts/lib/jquery-1.11.2.min.js')
+  title Starter
+  script(src='/javascripts/lib/angular/angular.min.js')
+  script(src='/javascripts/app.js')
+  script(src='/javascripts/lib/underscore-min.js')
   script(src='//localhost:35729/livereload.js')
-  link(href='/stylesheets/bootstrap.min.css', rel='stylesheet')
-  link(href='/stylesheets/bootstrap-theme.min.css', rel='stylesheet')
+  link(href='/javascripts/lib/bootstrap/dist/css/bootstrap.min.css', rel='stylesheet')
+  link(href='/javascripts/lib/bootstrap/dist/css/bootstrap-theme.min.css', rel='stylesheet')
   link(href='/stylesheets/style.css', rel='stylesheet')
-html
-  body
-    h2 Simple RESTful API Starter
-    p Open your browser's network inspector to see the JSON ajax requests
-    .row
-      .col-xs-4
-        h3
-          a#create(href='javascript:') Create an item (POST)
-        p#create-response
-    .row
-      .col-xs-4
-        h3
-          a#read(href='javascript:') Read a list of items (GET)
-        p#read-response
-    .row
-      .col-xs-4
-        h3
-          a#read-item(href='javascript:') Read one item (GET)
+html(ng-app="todoApp")
+  body(ng-controller="ToDoCtrl")
+    .col-xs-12
+      h2 Stack Harmony#{' '}
+        span.label.label-default(ng-show="viewLearner") {{todo.items.length + (todo.has_more ? '+' : '')}}
+    .learner(ng-show="viewLearner")
+      .col-xs-12
+        h4 Select some questions that you would enjoy answering.
+      .col-xs-8
+        .input-group
+          input.form-control(ng-model="tagText")
+          span.input-group-btn
+            button.btn.btn-default(ng-click="addTag(tagText); tagText = ''") Add Search Tag
+        table.table.table-striped
+          thead
+            tr
+              th Description
+              th Like
+          tbody()
+            tr(ng-repeat="item in todo.items")
+              td
+                a(href="{{item.link}}", ng-bind-html="item.title | trustHTMLFilter") {{item.title}}
+              td
+                input(type="checkbox", ng-model="item.checked")
+      .col-xs-4(ng-show="tagArr.length > 0")
         p
-          input(id="cid" type="text")
-        p#read-item-response
-    .row
-      .col-xs-4
-        h3
-          a#update-item(href='javascript:') Update an item (PUT)
-        p
-          input(id="cidUpdate" type="text")
-        p#update-item-response
-    .row
-      .col-xs-4
-        h3
-          a#delete-item(href='javascript:') Delete an item (DELETE)
-        p
-          input(id="cidDelete" type="text")
-        p#delete-response
-
-  script(src='/javascripts/home.js')
+          strong Search Tags
+        ul
+          li(ng-repeat="tag in tagArr")
+            p {{tag + ' '}}
+              a(href="", ng-click="removeTag(tag)") X
+      .col-xs-4(ng-show="(todo.items | checkedTagsFilter).length > 0")
+        p Tags From Questions You've Selected
+        ul
+          li(ng-repeat="item in todo.items | checkedTagsFilter")
+            p(ng-class="($index < 3) ? 'highlight' : ''") {{item.split("|")[0] + ' (' + item.split("|")[1] + ')'}}
+        button.btn.btn-default(ng-click="changeViewFinder()") Give me questions
+    .finder.col-xs-12(ng-show="viewFinder")
+      button.btn.btn-default(ng-click="changeViewLearner()") Go back
+      hr
+      table.table.table-striped
+        thead
+          tr
+            th Question
+        tbody()
+          tr(ng-repeat="item in todo.openQuestions | filter:{accepted_answer_id:'!'}")
+            td
+              a(href="{{item.link}}", ng-bind-html="item.title | trustHTMLFilter") {{item.title}}

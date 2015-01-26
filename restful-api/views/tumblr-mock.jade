@@ -1,0 +1,45 @@
+doctype html
+head
+  title API Demo
+  script(src='/javascripts/lib/jquery-1.11.2.min.js')
+  script(src='//localhost:35729/livereload.js')
+  link(href='/stylesheets/bootstrap.min.css', rel='stylesheet')
+  link(href='/stylesheets/bootstrap-theme.min.css', rel='stylesheet')
+  link(href='/stylesheets/style.css', rel='stylesheet')
+html
+  body
+    h2 Simple RESTful API Starter
+    p Open your browser's network inspector to see the JSON ajax requests
+    .row
+      .col-xs-4
+        h3
+          a#create(href='javascript:') Create an item (POST)
+        p#create-response
+    .row
+      .col-xs-4
+        h3
+          a#read(href='javascript:') Read a list of items (GET)
+        p#read-response
+    .row
+      .col-xs-4
+        h3
+          a#read-item(href='javascript:') Read one item (GET)
+        p
+          input(id="cid" type="text")
+        p#read-item-response
+    .row
+      .col-xs-4
+        h3
+          a#update-item(href='javascript:') Update an item (PUT)
+        p
+          input(id="cidUpdate" type="text")
+        p#update-item-response
+    .row
+      .col-xs-4
+        h3
+          a#delete-item(href='javascript:') Delete an item (DELETE)
+        p
+          input(id="cidDelete" type="text")
+        p#delete-response
+
+  script(src='/javascripts/home.js')
